@@ -69,6 +69,21 @@
         NSDictionary *dados = [listaDados objectAtIndex:indexPath.row];
         //carregando no titulo, o nome do dicionario de dados
         celula.textLabel.text = [dados objectForKey:@"nome"];
+        //carregando a imagem padrão na tabela
+        celula.imageView.image = [listaImagens objectAtIndex:indexPath.row];
+        celula.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        //se existe a imagem e a lista está com a imagem padrao
+        if(([[dados objectForKey:@"img"] isEqualToString:@""]==false)&&([[listaImagens objectAtIndex:indexPath.row] isEqual:[UIImage imageNamed:@"imagem.png"]])) {
+            //mostrando a url da imagem
+            NSString *urlImagem = [NSString stringWithFormat:@"http://www.marcosdiasvendramini.com.br/imgEstereograma/m%@", [dados objectForKey:@"img"]];
+            dispatch_queue_t downloadQueue = dispatch_queue_create("image downloader", NULL);
+            dispatch_async(downloadQueue, ^{
+                //fazendo o downlaod da imagem
+                NSData *dataImg = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlImagem]];
+                //carregando a imagem em um objeto image
+                UIImage *imagem = [UIImage imageWithData:dataImg];
+            });
+        }
     }
     
     return celula;
