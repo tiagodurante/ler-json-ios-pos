@@ -19,8 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    listaImagens = [[NSMutableArray alloc] init];
+    // chama o carregarDados em thread
+    [self performSelector:@selector(carregarDados) withObject:nil];
 }
-
 - (void)carregarDados {
     NSError *erro;
     @try {
@@ -33,17 +35,43 @@
         
         for (int cont = 0; cont< listaDados.count; cont++) {
             //carregando uma imagem
-            [listaImagens addObject:[UIImage imageNamed:@"imagem.png"]]
+            [listaImagens addObject:[UIImage imageNamed:@"imagem.png"]];
         }
         
         [tabela reloadData];
     }
     @catch (NSException *exception) {
-        <#Handle an exception thrown in the @try block#>
+ 
     }
     @finally {
-        <#Code that gets executed whether or not an exception is thrown#>
+ 
     }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return listaDados.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //criando uma celula a partir do modelo da tela
+    UITableViewCell *celula = [tableView dequeueReusableCellWithIdentifier:@"Celula"];
+    //caso a celula nao tenha sido iniciada, ele vai criar uma com o estilo default
+    if (celula == nil) {
+        celula = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Celula"];
+    }
+    //verificando se existe a posição da linha atual no array
+    if ([listaDados objectAtIndex:indexPath.row] != nil) {
+        //carregando o dicionario de dados do item do array
+        NSDictionary *dados = [listaDados objectAtIndex:indexPath.row];
+        //carregando no titulo, o nome do dicionario de dados
+        celula.textLabel.text = [dados objectForKey:@"nome"];
+    }
+    
+    return celula;
 }
 
 - (void)didReceiveMemoryWarning {
