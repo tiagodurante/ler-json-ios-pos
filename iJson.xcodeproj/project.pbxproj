@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03048C5D1DF2D96E006D9664 /* imagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 03048C5C1DF2D96E006D9664 /* imagem.png */; };
 		038198991DF2D0E000EBA5FB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 038198981DF2D0E000EBA5FB /* main.m */; };
 		0381989C1DF2D0E000EBA5FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0381989B1DF2D0E000EBA5FB /* AppDelegate.m */; };
 		0381989F1DF2D0E000EBA5FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0381989E1DF2D0E000EBA5FB /* ViewController.m */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03048C5C1DF2D96E006D9664 /* imagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagem.png; sourceTree = "<group>"; };
 		038198931DF2D0E000EBA5FB /* iJson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iJson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		038198971DF2D0E000EBA5FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		038198981DF2D0E000EBA5FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,9 +62,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03048C5B1DF2D885006D9664 /* Imagens */ = {
+			isa = PBXGroup;
+			children = (
+				03048C5C1DF2D96E006D9664 /* imagem.png */,
+			);
+			name = Imagens;
+			sourceTree = "<group>";
+		};
 		0381988A1DF2D0E000EBA5FB = {
 			isa = PBXGroup;
 			children = (
+				03048C5B1DF2D885006D9664 /* Imagens */,
 				038198951DF2D0E000EBA5FB /* iJson */,
 				038198AF1DF2D0E000EBA5FB /* iJsonTests */,
 				038198941DF2D0E000EBA5FB /* Products */,
@@ -199,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03048C5D1DF2D96E006D9664 /* imagem.png in Resources */,
 				038198A21DF2D0E000EBA5FB /* Main.storyboard in Resources */,
 				038198A71DF2D0E000EBA5FB /* LaunchScreen.xib in Resources */,
 				038198A41DF2D0E000EBA5FB /* Images.xcassets in Resources */,
@@ -416,6 +428,7 @@
 				038198B81DF2D0E000EBA5FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		038198B91DF2D0E000EBA5FB /* Build configuration list for PBXNativeTarget "iJsonTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +437,7 @@
 				038198BB1DF2D0E000EBA5FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
